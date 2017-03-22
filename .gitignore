@@ -1,2 +1,3 @@
 .vagrant/
-www/phpmyadin
+www/phpmyadmin
+test.php
