@@ -22,17 +22,19 @@ if (array_key_exists('save', $_POST)) {$errors = [];
 
 	#be sure a file was selected...
 	
-	if(empty($_FILES['pic']['name'])){
-		$errors[] = "please choose a file";
+	if(empty($_FILES['pic']['name'])) {
+		$errors['pic'] = "please choose a file";
 	}
 
 
   # check file size...
-		if (empty($_FILES['pic']['size'] > MAX_FILE_SIZE) {
-			$errors[] = "file size exceeds maximum. maximum:". MAX_FILE_SIZE;
+		if ($_FILES['pic']['size'] > MAX_FILE_SIZE) {
+			$errors['pic'] = "file size exceeds maximum. maximum:". MAX_FILE_SIZE;
 		}
 
-		if(empty($errors)) {echo "done";} else {foreach ($errors as $err){echo $err.'</br>';}
+		if(empty($errors)) {echo "done";} else {foreach ($errors as $err){echo $err.'</br>';
+	}
+	
 	}
 }
 
